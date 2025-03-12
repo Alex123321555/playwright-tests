@@ -50,16 +50,3 @@ jobs:
       with:
         name: playwright-report
         path: playwright-report
-
-
-    - name: Collect test errors
-      run: |
-        cat playwright-report/index.html | grep -i "error" > errors.txt
-
-
-    - name: Upload errors.txt if errors exist
-      if: success() && fileExists('errors.txt')
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-errors
-        path: errors.txt
