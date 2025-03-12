@@ -43,7 +43,7 @@ jobs:
 
     - name: Run Playwright tests
       run: |
-        sudo npx playwright test --reporter=html
+        sudo npx playwright test 
 
     - name: Upload Playwright HTML report as artifact
       uses: actions/upload-artifact@v4
