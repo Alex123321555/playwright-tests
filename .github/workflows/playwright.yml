@@ -21,10 +21,6 @@ jobs:
       with:
         node-version: '22'
 
-    - name: Show Node.js version
-      run: |
-        node -v
-
     - name: Install dependencies
       run: |
         npm install
@@ -33,18 +29,9 @@ jobs:
       run: |
         sudo npm install playwright --unsafe-perm=true --allow-root
 
-    - name: Install Playwright globally
+    - name: Install Playwright Browsers
       run: |
-        sudo npm install -g playwright
-
-    - name: Show Playwright version
-      run: |
-        npx playwright --version
-
-    - name: Fix Playwright permissions
-      run: |
-        sudo chmod -R 777 node_modules
-        sudo chmod -R +x node_modules/playwright
+        npx playwright install
 
     - name: Run Playwright tests
       run: |
