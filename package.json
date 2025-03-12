@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Alex123321555/playwright-tests#readme",
   "description": "",
   "dependencies": {
-    "playwright": "^1.51.0"
+    "playwright": "^1.51.0",
+    "playwright-core": "^1.51.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0"
