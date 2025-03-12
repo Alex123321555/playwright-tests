@@ -31,7 +31,7 @@ jobs:
 
     - name: Fix permissions for Playwright
       run: |
-        sudo chmod 777 +x node_modules/playwright
+        sudo chmod -R +x node_modules/playwright
 
 
     - name: Run Playwright tests
