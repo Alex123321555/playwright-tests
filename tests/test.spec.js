@@ -4,7 +4,7 @@ test.describe('Базовая проверка лендинга', () => {
   
   test('Страница загружается без ошибок', async ({ page }) => {
     await page.goto('https://polis812.github.io/vacuu/');
-    await expect(page).toHaveTitle(/vacuu/i); 
+    await expect(page).toHaveTitle(/vakuu/i); 
   });
 
   test('Кнопка "Get Started" отображается и не ведет никуда', async ({ page }) => {
