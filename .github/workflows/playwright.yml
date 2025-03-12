@@ -21,25 +21,26 @@ jobs:
       with:
         node-version: '22'
 
+    - name: Show Node.js version
+      run: |
+        node -v
+
     - name: Install dependencies
       run: |
         npm install
 
-    - name: Show Node.js and Playwright versions
-      run: |
-        node -v
-        npx playwright --version
-
-
     - name: Install Playwright dependencies
       run: |
-        npm ci
-        npx playwright install --with-deps
+        sudo npm install playwright --unsafe-perm=true --allow-root
 
-    - name: Fix permissions for Playwright
+    - name: Show Playwright version
+      run: |
+        npx playwright --version
+
+    - name: Fix Playwright permissions
       run: |
         sudo chmod -R +x node_modules/playwright
-
+        sudo chmod -R 777 node_modules/playwright
 
     - name: Run Playwright tests
       run: |
