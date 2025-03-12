@@ -33,14 +33,14 @@ jobs:
       run: |
         sudo npm install playwright --unsafe-perm=true --allow-root
 
-    - name: Show Playwright version
-      run: |
-        npx playwright --version
-
     - name: Fix Playwright permissions
       run: |
         sudo chmod -R +x node_modules/playwright
         sudo chmod -R 777 node_modules/playwright
+
+    - name: Show Playwright version
+      run: |
+        npx playwright --version
 
     - name: Run Playwright tests
       run: |
