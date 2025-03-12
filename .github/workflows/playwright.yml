@@ -25,9 +25,16 @@ jobs:
       run: |
         npm install
 
+    - name: Show Node.js and Playwright versions
+      run: |
+        node -v
+        npx playwright --version
+
+
     - name: Install Playwright dependencies
       run: |
-        npm install playwright --unsafe-perm=true --allow-root
+        npm ci
+        npx playwright install --with-deps
 
     - name: Fix permissions for Playwright
       run: |
