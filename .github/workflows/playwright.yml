@@ -27,7 +27,12 @@ jobs:
 
     - name: Install Playwright dependencies
       run: |
-        sudo npm install playwright --unsafe-perm=true --allow-root
+        npm install playwright --unsafe-perm=true --allow-root
+
+    - name: Fix permissions for Playwright
+      run: |
+        sudo chmod 777 +x node_modules/playwright
+
 
     - name: Run Playwright tests
       run: |
