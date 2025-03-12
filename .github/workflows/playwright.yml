@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -41,8 +45,21 @@ jobs:
       run: |
         sudo npx playwright test --reporter=html
 
-    - name: Upload test results as artifact
-      uses: actions/upload-artifact@v4
+    - name: Upload Playwright HTML report as artifact
+      uses: actions/upload-artifact@v3
       with:
-        name: playwright-test-results
-        path: test-results/
+        name: playwright-report
+        path: playwright-report
+
+
+    - name: Collect test errors
+      run: |
+        cat playwright-report/index.html | grep -i "error" > errors.txt
+
+
+    - name: Upload errors.txt if errors exist
+      if: success() && fileExists('errors.txt')
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-errors
+        path: errors.txt
