@@ -46,7 +46,7 @@ jobs:
         sudo npx playwright test --reporter=html
 
     - name: Upload Playwright HTML report as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-report
         path: playwright-report
@@ -59,7 +59,7 @@ jobs:
 
     - name: Upload errors.txt if errors exist
       if: success() && fileExists('errors.txt')
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-errors
         path: errors.txt
