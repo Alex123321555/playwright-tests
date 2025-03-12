@@ -29,9 +29,14 @@ jobs:
       run: |
         sudo npm install playwright --unsafe-perm=true --allow-root
 
+    - name: Fix permissions for node_modules
+      run: |
+        sudo chmod -R 777 node_modules
+
+    # Шаг для установки браузеров
     - name: Install Playwright Browsers
       run: |
-        npx playwright install
+        sudo npx playwright install
 
     - name: Run Playwright tests
       run: |
